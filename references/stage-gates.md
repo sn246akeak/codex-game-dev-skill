@@ -2,6 +2,8 @@
 
 This reference defines outputs and acceptance criteria for an AI-coded vibe game. The actual next module comes from `workflow.json`, not from phase numbers alone. Gameplay and data phases can repeat per module; a prerequisite data pipeline may precede its gameplay integration. Sample approval precedes batch art. The user can explicitly defer optional work, but core gameplay, PRD, playable-session and delivery gates remain required.
 
+Gates describe evidence and real user judgments, not a required pause after each phase or internal task. Reuse existing approval, continue authorized work, and bundle internal checks into meaningful playable reviews according to SKILL.md's continuous-progress policy.
+
 ## Phase 0: Project Charter
 
 Goal: create a bounded fixed-version target before implementation starts.
@@ -49,6 +51,8 @@ Gate to advance:
 - The user can describe what a player does every 10-30 seconds and why it is fun.
 
 ## Phase 2: First PRD
+
+Document responsibilities follow [document-specs.md](document-specs.md): the version PRD owns scope and experience, module specifications own detailed rules, implementation records own actual evidence. Review specifications with [document-review.md](document-review.md); company formatting is optional and does not add a gate or replace runtime/user checks.
 
 Goal: turn the vibe into a buildable first version.
 
@@ -232,3 +236,4 @@ Required outputs:
 Gate to complete:
 
 - The user accepts the fixed version as delivered, deferred items are recorded, and the next version has a clean starting point.
+

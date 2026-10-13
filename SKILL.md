@@ -3,12 +3,22 @@ name: vibe-game-ai-coding
 description: Guide a game project from gameplay discovery through an approved PRD, one-module-at-a-time implementation, user acceptance, and fixed-version delivery. Use for an end-to-end staged game workflow or resuming its progress, not for an isolated game bug or asset request.
 metadata:
   short-description: Staged AI game-coding workflow
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Vibe Game AI Coding
 
 Act as the producer-engineer for a bounded game version. Guide the user, co-design missing materials, implement the current module, present evidence, and advance after the user's actual acceptance. This skill is an AI-guided workflow, not a background agent launcher or a game engine.
+
+## Continuous Progress and Human Checkpoints
+
+Keep implementing, checking, fixing and recording progress within the approved scope until a real human dependency or the requested deliverable is reached. State transitions and document templates are bookkeeping, not reasons to end a turn. Existing approvals, defaults and source files remain valid; never ask for them again merely because a new module starts.
+
+Pause only when a missing source/data file cannot be obtained or reasonably substituted within scope, an unresolved product decision materially changes behavior, a real user playtest/art/feel review is needed, or an external permission/tool blocker cannot be resolved safely. Complete independent work first. Explain the exact missing input or playable result and why the user is needed.
+
+After user acceptance, record it and continue the next approved work in the same turn. When no new decision or validation is needed, do not end with “no further input needed”, an offer to continue, or a confirmation question. Derive micro-PRDs from approved requirements, state routine implementation choices, and proceed. Bundle related implementation slices into a meaningful playable review rather than requesting approval for each internal step.
+
+Never fabricate acceptance: automated checks are verification, not user approval. Keep the active playable milestone unaccepted while implementing its internal slices; record slice checks and actual user feedback as notes/evidence. Queue modules around genuine human review outcomes, not every technical subtask. Existing workflow history must remain intact; a bookkeeping mismatch does not justify claiming a whole milestone passed.
 
 ## Start or Resume
 
@@ -28,6 +38,16 @@ Follow [module-handoff.md](references/module-handoff.md): intake, co-design a mi
 - If the user changes inputs, reread the actual files and revise the current module. For previously accepted work, add an explicit revision module instead of rewriting its history. A delivered version gets a new workflow directory.
 - Automation validates state, file existence and hashes, not whether a written claim is true. Run the relevant engine/build/playtest checks and inspect their results before recording success.
 
+## Design Documents
+
+Read [document-specs.md](references/document-specs.md) when drafting or revising a project PRD or module specification. Keep three distinct artifacts: version PRD (scope and experience), module specification (behavior and rules), and implementation/validation record (actual results). Shared rules have one owner; exports cite the same approved specification and revision.
+
+Default to concise Markdown in the user's working language (Chinese for this user's projects), allowing useful tables. Use [company-delivery.md](references/company-delivery.md) only for company-facing formal documents or template requests. Company layout conventions do not remove acceptance criteria from development contracts. Neither mode adds another workflow state machine or approval gate.
+
+For UI behavior, read [ui-behavior-specs.md](references/ui-behavior-specs.md); for actual copy, screenshots or asset handoff, read [copy-and-resources.md](references/copy-and-resources.md). Before treating a spec as ready for implementation, apply [document-review.md](references/document-review.md). Review only applicable dimensions; a short module need not become a large document.
+
+Reuse recorded scope, format, screenshot preferences and approvals. Resolve reversible editorial details directly. Bundle only unresolved consequential product decisions for the user; finish unaffected work. Keep uncertain rules in clearly labeled working records or discussion drafts, never as confirmed final rules. A documentation pass is not implementation verification or user acceptance. Preserve approved history when improving documents.
+
 ## Specialists
 
 Read [skill-routing.md](references/skill-routing.md) only when specialist work is needed. Resolve the current module with `scripts/route_subskills.py`; use the manifest and content lock instead of remembered mappings. A candidate is not a verified dependency or permission to use a paid service.
@@ -45,3 +65,4 @@ The parent retains version scope, state and acceptance. Missing or modified depe
 ## Delivery
 
 Close only when all fixed-version modules are accepted or explicitly deferred and the delivery gate is accepted. Record runnable instructions, regression evidence, limitations, reusable script commands and next-version backlog. Export the implementation log with `workflow.py export`; keep source Markdown when another format is requested. Do not claim an exported status log automatically contains a complete historical SOP: enrich the diary with the productive prompts, design decisions and verified scripts actually used.
+

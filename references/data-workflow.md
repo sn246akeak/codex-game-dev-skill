@@ -2,6 +2,14 @@
 
 Use for designer-edited cards, events, balance, characters, levels or asset requirements.
 
+## Specification and ownership
+
+Separate actual runtime state (current balance/progress), static config (capacity/price/threshold), and derived display (remaining capacity/total price). State which value is read, when it refreshes, and how config is matched; a config limit is not a current value. Describe business sources without inventing protocols or save fields unless technical design is in scope.
+
+Give shared rules/config one owner. For public dependencies, cite their known owner, required result, refresh/use and unavailable behavior; do not duplicate or fabricate their schema. For this module's own config, define purpose, row granularity, key, field meaning/type/range, necessary defaults, references, consumers and meaningful validation. Reuse project names/storage; do not force GameConfig or add switches/tables without business need. Unknown tuning values can remain symbolic in a discussion draft with explicit ownership; unresolved consequential rule choices are not fixed by writing "configurable". Final specifications must distinguish approved values, editable tuning ranges and genuinely unresolved decisions.
+
+## Editing and runtime pipeline
+
 1. Agree on the editable source, stable ID column, allowed fields, types/ranges, references and runtime destination. Never match by row order or display name.
 2. Preserve a baseline/export and source hash before asking the user to edit. Treat the latest actual source as authoritative when they return, not remembered conversation.
 3. Reread the file. For XLSX, use an available spreadsheet parser and select explicit sheets/columns. Agree on formula handling; do not assume cached formulas are recalculated. Produce normalized CSV/JSON with consistent types when needed.

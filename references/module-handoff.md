@@ -8,7 +8,7 @@ Use this reference whenever the user submits or approves a module, such as a car
 2. Freeze the module contract.
 3. Implement the smallest complete slice.
 4. Verify the slice.
-5. Ask for review; mark accepted only with the user's actual acceptance.
+5. Request review when a meaningful playable result needs user judgment; mark accepted only with actual acceptance. Internal slices continue without a separate handoff.
 6. Expand or move to the next module.
 
 ## Step 1: Intake
@@ -29,6 +29,8 @@ If the user provides a spreadsheet or file, inspect the file and summarize its c
 
 Create a micro-PRD before editing implementation files.
 
+Apply [document-specs.md](document-specs.md) to reconstruct behavior from actual materials and approvals. Reuse an existing approved contract when sufficient; the scaffold is an optional discussion draft, not a new approval requirement. Use [ui-behavior-specs.md](ui-behavior-specs.md) for applicable controls and [document-review.md](document-review.md) before implementation. Keep unresolved decisions and implementation evidence outside a confirmed final spec.
+
 Required fields:
 
 - Objective.
@@ -39,6 +41,8 @@ Required fields:
 - Error handling.
 - Acceptance criteria.
 - Validation commands or manual checks.
+
+Also make scope/non-goals and rule ownership explicit. For relevant operations, connect trigger, ordered checks, state/data change, feedback, failure/cancel and recovery. Separate runtime state, config and computed values. Cite public dependencies rather than duplicating their rules. Only expand dimensions that affect this module; detailed copy/assets and company formatting are conditional references linked from SKILL.md.
 
 The contract can be short, but it must be explicit enough for another AI turn to resume.
 
@@ -79,7 +83,7 @@ When handing back to the user, include:
 - Known limitations.
 - The exact question for acceptance, such as "这个卡牌模块是否进入 accepted，还是继续调整数值/表现？"
 
-Do not start the next module until the user accepts or explicitly defers this module. An ambiguous "continue" during implementation means continue the current work, not accept unseen results.
+Do not claim acceptance of unseen results. Work within the current approved milestone can continue across internal slices without stopping. At a genuine user-review boundary, deliver the concrete result and ask for the specific playtest or decision needed. After actual acceptance, continue the next already-authorized work immediately.
 
 ## Step 6: Repeat
 
@@ -87,7 +91,7 @@ After acceptance:
 
 1. Mark the module `accepted`.
 2. Move the next queued module to `intake_needed` or `designing`.
-3. Ask for only that module's missing inputs.
+3. Inspect existing files and authorization. Ask only for genuinely missing inputs; otherwise implement and verify without ending the turn.
 4. Keep the fixed-version scope unchanged unless the user intentionally reopens it.
 
 ## Common Module Patterns
@@ -132,3 +136,4 @@ Ask for or define:
 - Runtime format.
 - Validation script.
 - What AI should regenerate after the user edits it.
+

@@ -1,0 +1,20 @@
+{
+  "source_skill": "write-game-design-docs",
+  "adapted_on": "2026-10-13",
+  "source_archive": "write-game-design-docs(10).zip",
+  "archive_sha256": "5a3abe865bf23c7678ecdaa3f513bd125eb5de0d05e9b3c3d7387d1b43ca2e53",
+  "templates": [
+    {
+      "file": "功能文档模板.docx",
+      "sha256": "96c7c16f52b447b371577ce8770c655912f381619f192919689e3125b3a35dbd"
+    },
+    {
+      "file": "玩法文档模板.docx",
+      "sha256": "3b69cef89eb181b08d7739e5778e70258799da2705fb5714c8a9ee99eb64cf5c"
+    },
+    {
+      "file": "设计文档模板.xmind",
+      "sha256": "202e1ad10370ca270298ca885219aec37a0837052911186278e27d06a38a9cc1"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # User Intake
 
-Use this reference to guide the user without overwhelming them. Ask only for the current phase's missing inputs.
+Use this reference to guide the user without overwhelming them. Ask only for material inputs that are truly missing after inspecting files and prior authorization. If none are missing, continue work; do not request ceremonial confirmation.
 
 ## First Invocation
 
@@ -68,3 +68,4 @@ Convert vague input into a bounded gate:
 - "更爽" becomes action frequency, feedback timing, reward visibility, and failure recovery.
 
 Ask for examples only when the repo cannot answer the question.
+

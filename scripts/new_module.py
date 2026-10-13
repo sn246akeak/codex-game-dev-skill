@@ -17,12 +17,15 @@ def slugify(value: str) -> str:
 
 MODULE_TEMPLATE = """# Module Handoff: {name}
 
-## Metadata
+## Metadata / 工作约定
 
 - Created: {today}
 - State: intake_needed
 - Owner: user + AI
 - Source of Truth: {source}
+- Document: discussion draft / 讨论稿，填充并审查后才能作为开发规格
+- Delivery: daily Markdown / 日常开发模式；公司输出另读 company-delivery.md
+- Rule owner / revision: 本文件定义本模块规则；共享规则注明归属文件与版本
 
 ## Objective
 
@@ -36,6 +39,18 @@ TBD
 
 TBD
 
+## Scope / Non-goals
+
+- Allowed changes: TBD
+- Out of scope: TBD
+
+## Operation and Lifecycle
+
+- Trigger and ordered checks: TBD
+- Success / state and data changes: TBD
+- Invalid action / failure / cancel: TBD
+- Exit / recovery, when applicable: TBD
+
 ## States Touched
 
 - TBD
@@ -46,15 +61,21 @@ TBD
 |---|---|---:|---|
 | id | string | yes | Stable module/content ID |
 
+区分运行时状态、静态配置与计算结果；自有配置写明用途、粒度、主键、字段约束与读取位置。公共规则引用其归属，不重复造表。无独立数据记录时删去示例 id 行。
+
 ## UI / Scene Touchpoints
 
 - TBD
+
+说明实际入口与去向、默认/选中/不可操作状态、处理中输入限制、成功/失败后的刷新。已完整复用的公共组件只写绑定及差异。不适用的项直接省略。
 
 ## Feedback Requirements
 
 - Visual: TBD
 - Audio: TBD
 - Animation: TBD
+
+实际文案与资源按需关联到状态；仅在项目多语言或公司交付要求下生成文案 ID/CSV。
 
 ## Acceptance Criteria
 
@@ -64,6 +85,16 @@ TBD
 
 - Automated: TBD
 - Manual: TBD
+
+关键验收写明输入、操作、预期结果；文档审查与程序验证、用户验收分别记录。
+
+## Working Decisions / 仅讨论阶段保留
+
+- Unresolved consequential decisions: TBD
+- Existing approvals / evidence: TBD
+- Routine implementation choices: TBD
+
+已有授权沿用；重大未决项集中询问，继续无依赖工作。正式终稿前将问题和推导移入工作记录，保留确定规则与来源链接。
 
 ## Implementation Notes
 
