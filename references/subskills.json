@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "orchestrator": "vibe-game-ai-coding",
+  "orchestrator": "codex-game-dev-skill",
   "dependencies": [
     {
       "name": "game-design-theory",

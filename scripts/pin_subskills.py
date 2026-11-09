@@ -24,7 +24,7 @@ def build_lock(manifest):
         key = (repo, ref)
         if key not in archives:
             request = urllib.request.Request(f"https://codeload.github.com/{repo}/zip/{ref}",
-                                             headers={"User-Agent": "vibe-game-ai-coding"})
+                                             headers={"User-Agent": "codex-game-dev-skill"})
             with urllib.request.urlopen(request, timeout=60) as response:
                 archives[key] = response.read()
         with zipfile.ZipFile(io.BytesIO(archives[key])) as archive:

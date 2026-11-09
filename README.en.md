@@ -1,32 +1,40 @@
-# Vibe Game AI Coding
+# Codex Game Dev Skill
 
 English | [中文](README.md)
 
-A Codex skill for taking a game from a gameplay idea to a bounded, accepted version. AI guides intake and co-design, implements one module, presents validation evidence, and waits for your acceptance before starting the next cycle.
+A **Codex skill for AI game development**: take a game from a gameplay idea to a bounded, accepted version. AI guides intake and co-design, implements one module, presents validation evidence, and waits for your acceptance before starting the next cycle.
 
-**v1.0.0 combines workflow instructions, an executable state machine, content diffs, and specialist routing.** It is not an unattended game factory and does not bundle a game engine or paid asset service.
+**v1.1.0 renames the project to Codex Game Dev Skill (formerly Vibe Game AI Coding).** It combines workflow instructions, an executable state machine, content diffs, and specialist routing. It is not an unattended game factory and does not bundle a game engine or paid asset service.
+
+## Who it is for
+
+- Solo developers and small teams with a gameplay idea who want a first version that actually runs.
+- Designers and programmers already using Codex who want delivery in accepted modules instead of one giant generation.
+- Game projects that need the PRD, implementation and acceptance evidence to stay traceable.
 
 ## Install
 
 Requires Codex and Python 3.10+. Core helpers use only the Python standard library. Ask Codex:
 
-> Use skill-installer to install vibe-game-ai-coding from the root of sn246akeak/vibe-game-ai-coding.
+> Use skill-installer to install codex-game-dev-skill from the root of sn246akeak/codex-game-dev-skill.
 
 Or clone it into your Codex skills directory. PowerShell example:
 
 ```powershell
 $skills = if ($env:CODEX_HOME) { Join-Path $env:CODEX_HOME "skills" } else { Join-Path $HOME ".codex" "skills" }
-git clone https://github.com/sn246akeak/vibe-game-ai-coding.git (Join-Path $skills "vibe-game-ai-coding")
+git clone https://github.com/sn246akeak/codex-game-dev-skill.git (Join-Path $skills "codex-game-dev-skill")
 ```
 
 Inspect local changes before updating an existing directory. Start a new Codex session after installation so the skill can be discovered. Prepare engine, browser-test and asset-generation tools separately as needed.
+
+Upgrading from v1.0: the skill directory is now `codex-game-dev-skill`. The old `vibe-game-ai-coding` directory is no longer recognised under that name; rename it or reinstall. Existing `docs/ai-coding-workflow/` state in your project is unaffected.
 
 ## Use
 
 Open your game project and say:
 
 ```text
-Run $vibe-game-ai-coding. My target is v0.1, a game about ...
+Run $codex-game-dev-skill. My target is v0.1, a game about ...
 Inspect the existing project first. Guide me through only the current module's
 missing materials. Help me design them, obtain my design approval, implement
 the module and show verifiable results. Move on only after my acceptance.
@@ -35,7 +43,7 @@ the module and show verifiable results. Move on only after my acceptance.
 To resume:
 
 ```text
-Continue $vibe-game-ai-coding. Read the existing workflow.json and actual files.
+Continue $codex-game-dev-skill. Read the existing workflow.json and actual files.
 Show the current module, accepted progress, blockers and the next input you need.
 Do not rebuild progress or infer file changes from conversational memory.
 ```

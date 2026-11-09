@@ -1,12 +1,12 @@
 ---
-name: vibe-game-ai-coding
+name: codex-game-dev-skill
 description: Guide a game project from gameplay discovery through an approved PRD, one-module-at-a-time implementation, user acceptance, and fixed-version delivery. Use for an end-to-end staged game workflow or resuming its progress, not for an isolated game bug or asset request.
 metadata:
   short-description: Staged AI game-coding workflow
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
-# Vibe Game AI Coding
+# Codex Game Dev Skill
 
 Act as the producer-engineer for a bounded game version. Guide the user, co-design missing materials, implement the current module, present evidence, and advance after the user's actual acceptance. This skill is an AI-guided workflow, not a background agent launcher or a game engine.
 

@@ -1,32 +1,40 @@
-# Vibe Game AI Coding
+# Codex Game Dev Skill
 
 [English](README.en.md) | 中文
 
-一套从玩法想法推进到固定版本交付的 Codex skill。AI 分阶段引导你提交材料或共同完成设计，每次只落地一个模块，验证并由你验收后再进入下一轮。
+**AI 游戏开发工作流 Codex skill**：从玩法想法推进到固定版本交付。AI 分阶段引导你提交材料或共同设计，每次只落地一个模块，验证并由你验收后再进入下一轮。
 
-**v1.0.0：引导规范 + 可执行状态机 + 内容变更检查 + 专项 skill 路由。** 它不是无人值守的造游戏程序，也不自带游戏引擎或付费美术服务。
+**v1.1.0：更名为 Codex Game Dev Skill（原 Vibe Game AI Coding）。** 包含引导规范、可执行状态机、内容变更检查与专项 skill 路由。它不是无人值守的造游戏程序，也不自带游戏引擎或付费美术服务。
+
+## 适合谁
+
+- 有玩法想法、想把第一版真正做出来并跑通的独立开发者或小团队。
+- 已经在用 Codex，希望 AI 不要一次性生成整个工程、而是按模块交付的策划或程序。
+- 想把 PRD、实现过程和验收证据沉淀成可回溯记录的游戏开发项目。
 
 ## 安装
 
 需要 Codex 和 Python 3.10+。核心脚本只使用 Python 标准库。在 Codex 中可以这样提出：
 
-> 使用 skill-installer，从 sn246akeak/vibe-game-ai-coding 仓库根目录安装 vibe-game-ai-coding。
+> 使用 skill-installer，从 sn246akeak/codex-game-dev-skill 仓库根目录安装 codex-game-dev-skill。
 
 也可手动克隆到 Codex 的 skills 目录。PowerShell 示例：
 
 ```powershell
 $skills = if ($env:CODEX_HOME) { Join-Path $env:CODEX_HOME "skills" } else { Join-Path $HOME ".codex" "skills" }
-git clone https://github.com/sn246akeak/vibe-game-ai-coding.git (Join-Path $skills "vibe-game-ai-coding")
+git clone https://github.com/sn246akeak/codex-game-dev-skill.git (Join-Path $skills "codex-game-dev-skill")
 ```
 
 已有目录时先检查本地修改，不要覆盖。安装后重新开启 Codex 会话以发现 skill。Godot、浏览器测试工具、素材生成工具按项目需要单独准备。
+
+从 v1.0 升级：新目录名为 `codex-game-dev-skill`，旧的 `vibe-game-ai-coding` 目录不再被识别为同名 skill，重命名目录或重新安装即可；工程内的 `docs/ai-coding-workflow/` 状态不受影响。
 
 ## 怎么用
 
 在游戏项目中对 AI 说：
 
 ```text
-运行 $vibe-game-ai-coding。
+运行 $codex-game-dev-skill。
 目标版本是 v0.1，我想做一个……游戏。
 请先检查当前工程，每次只引导我完成当前模块需要的材料；
 材料和设计经我确认后再实施，展示可检查的结果；
@@ -36,7 +44,7 @@ git clone https://github.com/sn246akeak/vibe-game-ai-coding.git (Join-Path $skil
 恢复工作：
 
 ```text
-继续运行 $vibe-game-ai-coding，读取已有 workflow.json 和实际文件，
+继续运行 $codex-game-dev-skill，读取已有 workflow.json 和实际文件，
 告诉我当前模块、已验收进度、阻塞项以及这次需要我提交什么。
 不要重建已有进度，不要从聊天记忆猜测文件变化。
 ```
