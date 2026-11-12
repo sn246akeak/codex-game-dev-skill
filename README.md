@@ -83,7 +83,8 @@ git clone https://github.com/sn246akeak/codex-game-dev-skill.git (Join-Path $ski
 工程内的默认状态目录为 `docs/ai-coding-workflow/`：
 
 - `workflow.json`：唯一权威状态，包含模块队列、输入快照、证据、委派与决策历史。
-- `STATUS.md`：自动生成的进度看板，不能独立手改推进状态。
+- `STATUS.md`：自动生成的**紧凑看板**（版本、当前模块、队列、验收决策、最近 10 条事件、证据清单），不能独立手改推进状态；AI 读这一份就够。
+- `LOG.md`：自动生成的**全量事件日志**（含载荷与哈希），只作归档与回溯，AI 不读。
 - 模块 PRD、验收证据、BACKLOG：按实际需要创建，由状态记录关联。
 - `IMPLEMENTATION_LOG.md`：状态与证据日志导出，不覆盖已有文件。
 

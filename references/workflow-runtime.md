@@ -4,12 +4,13 @@ The Python 3.10+ standard-library CLI owns state transitions, file snapshots and
 
 ## Project Files
 
-- `docs/ai-coding-workflow/workflow.json`: state, ordered modules, snapshots, delegation and decision history. Mutate through CLI; do not hand-edit to bypass gates.
-- `STATUS.md`: generated projection, not an independent source of truth.
+- `docs/ai-coding-workflow/workflow.json`: state, ordered modules, snapshots, delegation and decision history. Mutate through CLI; do not hand-edit to bypass gates. Query one module with grep; never read or print the file wholesale.
+- `STATUS.md`: compact generated board (version, current phase, queue, acceptance decisions, 10 most recent events, evidence list). Read this - not the JSON - to answer "where are we".
+- `LOG.md`: full generated event log with payloads and hashes. Machine archive only; never read it.
 - `modules/`, `evidence/`, `BACKLOG.md`: create as needed. Each check report records command/environment, observed result and artifact paths. Keep reports immutable after submission for review.
 - `IMPLEMENTATION_LOG.md`: exclusive-create export; existing logs are preserved. Additional narrative SOPs can link to this evidence.
 
-Run helpers from the installed skill directory, targeting the game with `--project`. In commands below `GAME` is the real absolute project path. Global arguments precede the subcommand. On resume inspect JSON and actual files; do not initialize again.
+Run helpers from the installed skill directory, targeting the game with `--project`. In commands below `GAME` is the real absolute project path. Global arguments precede the subcommand. On resume read `STATUS.md` and the actual files; consult `workflow.json` only for one specific module; do not initialize again.
 
 ```bash
 python scripts/workflow.py --project "GAME" init --version "v0.1" --engine "Godot 4.4"

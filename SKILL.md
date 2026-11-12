@@ -3,7 +3,7 @@ name: codex-game-dev-skill
 description: Guide a game project from gameplay discovery through an approved PRD, one-module-at-a-time implementation, user acceptance, and fixed-version delivery. Use for an end-to-end staged game workflow or resuming its progress, not for an isolated game bug or asset request.
 metadata:
   short-description: Staged AI game-coding workflow
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Codex Game Dev Skill
@@ -12,10 +12,19 @@ Act as the producer-engineer for a bounded game version. Guide the user, co-desi
 
 ## Start or Resume
 
-1. Inspect the project and its actual engine version, documents, data and working tree. Discover existing progress before initializing anything.
-2. Read [workflow-runtime.md](references/workflow-runtime.md). Use `scripts/workflow.py` for persistent state in the project. `workflow.json` is authoritative; `STATUS.md` is generated. Preserve legacy logs and use a new directory for migration.
+1. Inspect the project's actual engine version, build/working tree and **document routing index** (`docs/README.md` when present). Discover existing progress before initializing anything. **Do not read the whole document set**: follow the index's routing table, open only the 1-3 documents the current module needs, and locate evidence with grep instead of reading it wholesale.
+2. Read [workflow-runtime.md](references/workflow-runtime.md). Use `scripts/workflow.py` for persistent state in the project. `workflow.json` is authoritative; `STATUS.md` is a compact generated board (read it - it stays short); `LOG.md` is the full event log and is never read. Use `status` for a compact dump; never print or paste `workflow.json` wholesale. Preserve legacy logs and use a new directory for migration.
 3. Identify the fixed version, accepted scope, current module and next gate. Read [user-intake.md](references/user-intake.md) for missing inputs and [stage-gates.md](references/stage-gates.md) for phase outputs. Ask only 1-3 current questions, not the whole project's questionnaire.
 4. Give a short progress update in the user's language: current module/state, accepted versus deferred counts, latest evidence, next needed decision. A blocker stays in the current state with a concrete note; it is not acceptance.
+
+## Reading Budget
+
+Every turn re-reads its context, so keep reading proportional to the current module.
+
+- Read the compact `STATUS.md` board to answer "where are we". `workflow.json` and `LOG.md` are for the CLI, not for reading; query one module with grep when the raw state is truly needed.
+- Open only the 1-3 documents the current module needs, chosen through `docs/README.md` when the project has one.
+- Search evidence and logs with grep and read the match plus its neighbourhood. Never paste a whole log, JSON state or evidence file into the reply.
+- Prefer `workflow.py status` (compact) over printing the JSON, and summarize findings instead of quoting bulk output.
 
 ## Module Loop
 
