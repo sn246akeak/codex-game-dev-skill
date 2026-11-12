@@ -138,6 +138,27 @@ class WorkflowTests(unittest.TestCase):
         self.act(to="needs_user_review", evidence=["checks.md"])
         self.assertIsNone(current(self.state)["delegation"])
 
+    def test_status_board_is_compact_and_log_keeps_full_history(self):
+        from scripts.workflow import MARKER, RECENT_EVENTS, render, save
+
+        directory = self.project / "docs/ai-coding-workflow"
+        directory.mkdir(parents=True)
+        notes = RECENT_EVENTS + 6
+        for _ in range(notes):
+            self.act("note", note="walked an implementation slice")
+        save(self.state, directory)
+        status = (directory / "STATUS.md").read_text(encoding="utf-8")
+        log = (directory / "LOG.md").read_text(encoding="utf-8")
+
+        self.assertIn(MARKER, status)
+        self.assertIn("LOG.md", status)
+        self.assertEqual(status.count("walked an implementation slice"), RECENT_EVENTS)
+        self.assertEqual(log.count("walked an implementation slice"), notes)
+        self.assertNotIn("```json", status)
+        self.assertLess(len(status.splitlines()), 120)
+        self.assertGreater(len(log.splitlines()), len(status.splitlines()))
+        self.assertLess(len(render(self.state)), len(render(self.state, full=True)))
+
     def test_legacy_status_and_writer_lock_are_preserved(self):
         directory = self.project / "docs/ai-coding-workflow"
         directory.mkdir(parents=True)

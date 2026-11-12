@@ -71,7 +71,7 @@ Every module follows intake → co-design → design approval → implementation
 
 ## Files and Executable Helpers
 
-Project state defaults to `docs/ai-coding-workflow/`. `workflow.json` is authoritative; `STATUS.md` is generated. Create module specifications, evidence and backlog as needed. `IMPLEMENTATION_LOG.md` is an exclusive-create export, not an automatic reconstruction of historical conversations.
+Project state defaults to `docs/ai-coding-workflow/`. `workflow.json` is authoritative; `STATUS.md` is a compact generated board and `LOG.md` the full generated log. Read the board, not the JSON or the log. Create module specifications, evidence and backlog as needed. `IMPLEMENTATION_LOG.md` is an exclusive-create export, not an automatic reconstruction of historical conversations.
 
 | Script | Purpose |
 |---|---|
